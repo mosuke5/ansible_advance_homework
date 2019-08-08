@@ -1,2 +1,3 @@
 ---
 # vars file for base-config
+baseurl: http://admin.na.shared.opentlc.com
