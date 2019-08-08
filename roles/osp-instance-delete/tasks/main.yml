@@ -9,5 +9,9 @@
   - debug:
       msg: "{{ openstack_info }}"
 
-  #- name: Delete instances
+  - name: Delete instances
+    os_server:
+      name: "{{ item.name }}"
+      state: absent
+    loop: "{{ ipenstack_info.ansible_facts.openstack_servers }}"
    
