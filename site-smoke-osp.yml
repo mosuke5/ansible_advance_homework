@@ -16,7 +16,7 @@
     uri:
       url: "http://{{ openstack_info.ansible_facts.openstack_servers[0].accessIPv4 }}"
       return_content: yes
-   register: webpage
+    register: webpage
 
   - name: Fail if 'Ansible has done its job' is not in the page content
     fail:
