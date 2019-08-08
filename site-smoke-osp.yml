@@ -12,10 +12,14 @@
   - debug:
       msg: "{{ openstack_info }}"
 
-#  - name: Curl website
-#
-#  - name: Fail if 'Ansible has done its job' is not in the page content
-#    fail:
-#    when: "'Ansible has done its job' not in webpage.results[0].content"
-#    tags:
-#      - osp.smoke
+  - name: Curl website
+    uri:
+      url: "http://{{ openstack_info.ansible_facts.openstack_servers[0].accessIPv4 }}"
+      return_content: yes
+   register: webpage
+
+  - name: Fail if 'Ansible has done its job' is not in the page content
+    fail:
+    when: "'Ansible has done its job' not in webpage.results[0].content"
+    tags:
+      - osp.smoke
