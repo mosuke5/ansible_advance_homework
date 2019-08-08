@@ -13,5 +13,5 @@
     os_server:
       name: "{{ item.name }}"
       state: absent
-    loop: "{{ ipenstack_info.ansible_facts.openstack_servers }}"
+    loop: "{{ openstack_info.ansible_facts.openstack_servers }}"
    
